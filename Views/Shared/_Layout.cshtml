@@ -1,0 +1,40 @@
+﻿<!DOCTYPE html>
+<html lang="sv">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"]</title>
+    <link rel="stylesheet" href="~/css/main.css" asp-append-version="true" />
+</head>
+
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li>
+                    <a asp-controller="Workout" asp-action="Index">Startsida</a>
+                </li>
+                <li>
+                    <a asp-controller="Workout" asp-action="Diary">Min träningsdagbok</a>
+                </li>
+                <li>
+                    <a asp-controller="Workout" asp-action="Add">Lägg till träningspass</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        @RenderBody()
+    </main>
+
+    <footer>
+        <p>Sidfot</p>
+    </footer>
+
+    <script src="~/js/main.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+
+</html>

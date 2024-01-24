@@ -1,0 +1,13 @@
+@model WorkoutDiary.Models.WorkoutModel
+
+@{
+    ViewData["Title"] = "Summering";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<!-- Skriver ut datumet, aktiviteten, träningstiden och känslan för träningspasset -->
+<p><strong>@Html.DisplayNameFor(model => model.Date):</strong> @string.Format("{0:yyyy-MM-dd}", Model.Date)</p>
+<p><strong>@Html.DisplayNameFor(model => model.Activity):</strong> @Html.DisplayFor(model => model.Activity)</p>
+<p><strong>@Html.DisplayNameFor(model => model.Minutes):</strong> @Html.DisplayFor(model => model.Minutes)</p>
+<p><strong>@Html.DisplayNameFor(model => model.Feeling):</strong> @Html.DisplayFor(model => model.Feeling)</p>

@@ -1,0 +1,27 @@
+@model List<SelectListItem>
+
+@{
+    ViewData["Title"] = "Känsla vid aktivitet";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<!-- Formulär för att addera en känsla vid aktiviteten -->
+<form action="summering" method="post">
+    <fieldset>
+        <legend>Välj din känsla:</legend>
+        <!-- Loopar igenom varje SelectListItem för att skapa radioknappar -->
+        @foreach (SelectListItem item in Model)
+        {
+            <label>
+                <!-- Radioknapp för varje känsla med värdet och texten från SelectListItem -->
+                <input type="radio" name="Feeling" value="@Html.DisplayFor(model => item.Value)" required>
+                @item.Text
+            </label>
+            <br>
+        }
+    </fieldset>
+    <div>
+        <input type="submit" value="Spara">
+    </div>
+</form>

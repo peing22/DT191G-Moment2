@@ -1,0 +1,30 @@
+@model WorkoutDiary.Models.WorkoutModel
+
+@{
+    ViewData["Title"] = "Lägg till träningspass";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<!-- Formulär för att lägga till ett nytt träningspass -->
+<form method="post">
+    <div asp-validation-summary="ModelOnly"></div>
+    <div>
+        <label asp-for="Date"></label><br>
+        <input asp-for="Date">
+        <span asp-validation-for="Date"></span>
+    </div>
+    <div>
+        <label asp-for="Activity"></label><br>
+        <input asp-for="Activity">
+        <span asp-validation-for="Activity"></span>
+    </div>
+    <div>
+        <label asp-for="Minutes"></label><br>
+        <input asp-for="Minutes">
+        <span asp-validation-for="Minutes"></span>
+    </div>
+    <div>
+        <input type="submit" value="Gå vidare">
+    </div>
+</form>

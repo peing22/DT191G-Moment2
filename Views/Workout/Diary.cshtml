@@ -1,0 +1,41 @@
+@model List<WorkoutDiary.Models.WorkoutModel>
+
+@{
+    ViewData["Title"] = "Min träningsdagbok";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<!-- Om Model inte är null och innehåller minst ett objekt -->
+@if (Model != null && Model.Any())
+{
+    <!-- Tabell för att visa träningspass -->
+    <table>
+    <thead>
+        <tr>
+            <th>Datum</th>
+            <th>Aktivitet</th>
+            <th>Träningstid</th>
+            <th>Känsla</th>
+        </tr>
+    </thead>
+    <tbody>
+        <!-- Loopar igenom listan och skriver ut information i tabellen -->
+        @foreach (var workout in Model)
+            {
+                <tr>
+                    <!-- Visa datumet i formatet yyyy-MM-dd -->
+                    <td>@string.Format("{0:yyyy-MM-dd}", workout.Date)</td>
+                    <td>@workout.Activity</td>
+                    <td>@workout.Minutes</td>
+                    <td>@workout.Feeling</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <!-- Annars skrivs meddelande ut -->
+    <p>Inga träningspass tillagda...</p>
+}
