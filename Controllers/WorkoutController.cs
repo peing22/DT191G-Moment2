@@ -7,34 +7,8 @@ namespace WorkoutDiary.Controllers;
 
 public class WorkoutController : Controller
 {
-    // Skapar en statisk lista med SelectListItem för olika känslor
-    private static readonly List<SelectListItem> Feelings =
-    [
-        new SelectListItem {Text = "Underbar", Value = "0"},
-        new SelectListItem {Text = "Skön", Value = "1"},
-        new SelectListItem {Text = "Likgiltig", Value = "2"},
-        new SelectListItem {Text = "Jobbig", Value = "3"},
-        new SelectListItem {Text = "Fruktansvärd", Value = "4"}
-    ];
-
-    [HttpGet]
-    public IActionResult Index()
-    {
-        // Lagrar strängvärden i variabler
-        string welcome = "Välkommen till min applikation...";
-        string explanation = "Applikationen fungerar såhär...";
-
-        // Sätter värden för ViewBag och ViewData som används i vyn
-        ViewBag.Welcome = welcome;
-        ViewData["Explanation"] = explanation;
-
-        // Returnerar vyn
-        return View();
-    }
-
-    [HttpGet]
-    [Route("/min-traningsdagbok")]
-    public IActionResult Diary()
+    // Metod som bland annat returnerar en lista med träningspass
+    private List<WorkoutModel> Workouts()
     {
         // Skapar en instans av WorkoutModel
         WorkoutModel workout = new();
@@ -44,6 +18,38 @@ public class WorkoutController : Controller
 
         // Sorterar listan efter datum
         workouts = [.. workouts.OrderBy(w => w.Date)];
+
+        // Beräknar den totala träningstiden
+        int totalMinutes = workouts.Sum(w => w.Minutes ?? 0);
+
+        // Lägger till den totala träningstiden i ViewData
+        ViewData["TotalWorkoutTime"] = totalMinutes;
+
+        return workouts;
+    }
+
+    [HttpGet]
+    public IActionResult Index()
+    {
+        // Lagrar strängvärde i variabel
+        string welcome = "Välkommen till min applikation...";
+
+        // Sätter värde för ViewBag som används i vyn
+        ViewBag.Welcome = welcome;
+
+        // Anropar metod för att beräkna total träningstid baserat på listan med träningspass
+        List<WorkoutModel> workouts = Workouts();
+
+        // Returnerar vyn
+        return View();
+    }
+
+    [HttpGet]
+    [Route("/min-traningsdagbok")]
+    public IActionResult Diary()
+    {
+        // Anropar metod för att lagra träningspass i en lista
+        List<WorkoutModel> workouts = Workouts();
 
         // Returnerar vyn och skickar med listan
         return View(workouts);
@@ -106,4 +112,14 @@ public class WorkoutController : Controller
         // Returnerar vyn och skickar med träningspasset
         return View(workout);
     }
+
+    // Skapar en lista med SelectListItem för olika känslor
+    private readonly List<SelectListItem> Feelings =
+    [
+        new SelectListItem {Text = "Underbar", Value = "0"},
+        new SelectListItem {Text = "Skön", Value = "1"},
+        new SelectListItem {Text = "Likgiltig", Value = "2"},
+        new SelectListItem {Text = "Jobbig", Value = "3"},
+        new SelectListItem {Text = "Fruktansvärd", Value = "4"}
+    ];
 }

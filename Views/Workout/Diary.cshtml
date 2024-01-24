@@ -39,3 +39,6 @@ else
     <!-- Annars skrivs meddelande ut -->
     <p>Inga träningspass tillagda...</p>
 }
+
+<!-- Inkluderar en partial view och skickar med den totala träningstiden som data -->
+@Html.Partial("_TotalWorkoutTimePartial", ViewData["TotalWorkoutTime"])

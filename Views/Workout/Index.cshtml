@@ -7,5 +7,5 @@
 <!-- Skriver ut välkomstmeddelandet från ViewBag -->
 <p>@ViewBag.Welcome</p>
 
-<!-- Skriver ut förklaringen från ViewData -->
-<p>@ViewData["Explanation"]</p>
+<!-- Inkluderar en partial view och skickar med den totala träningstiden som data -->
+@Html.Partial("_TotalWorkoutTimePartial", ViewData["TotalWorkoutTime"])
