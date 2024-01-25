@@ -71,6 +71,7 @@ h1 {
     text-align: center;
     font-weight: 700;
     margin-top: 40px;
+    border: 1px solid black;
     border-radius: 2px;
 }
 
@@ -82,10 +83,12 @@ table {
     font-size: 14px;
     border-collapse: collapse;
     margin: 20px 0;
+    border: 1px solid black;
 }
 
 thead tr {
-    background-color: rgba(34, 255, 14, 0.393);
+    background-color: rgba(34, 255, 14);
+    border-bottom: 1px solid black;
 }
 
 th,
@@ -93,8 +96,8 @@ td {
     padding: 2px 5px;
 }
 
-tr:nth-child(even) {
-    background-color: rgba(34, 255, 14, 0.393);
+tr {
+    border-bottom: 1px solid black;
 }
 
 
@@ -119,7 +122,7 @@ fieldset {
     padding: 1px 2px;
     font-size: 14px;
     font-family: 'Montserrat', Arial, sans-serif;
-    background-color: rgba(34, 255, 14, 0.393);
+    background-color: rgba(34, 255, 14);
     border: 1px solid black;
     border-radius: 2px;
 }
