@@ -17,7 +17,7 @@ public class WorkoutController : Controller
         List<WorkoutModel> workouts = workout.GetWorkouts();
 
         // Sorterar listan efter datum
-        workouts = [.. workouts.OrderBy(w => w.Date)];
+        workouts = [.. workouts.OrderByDescending(w => w.Date)];
 
         // Beräknar den totala träningstiden
         int totalMinutes = workouts.Sum(w => w.Minutes ?? 0);
@@ -32,7 +32,7 @@ public class WorkoutController : Controller
     public IActionResult Index()
     {
         // Lagrar strängvärde i variabel
-        string welcome = "Välkommen till min applikation...";
+        string welcome = "Det här är en webbplats skapad med ASP.NET Core MVC. Webbplatsen fungerar som en träningsdagbok där det är möjligt att lägga till olika träningspass som lagras till en JSON-fil. Samtliga tillagda träningspass skrivs ut till en tabell på undersidan MIN TRÄNINGSDAGBOK. En partial har konstruerats för att skriva ut en ruta som visar total träningstid baserat på tillagda träningspass. Denna partial används på två undersidor.";
 
         // Sätter värde för ViewBag som används i vyn
         ViewBag.Welcome = welcome;

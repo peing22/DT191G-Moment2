@@ -11,15 +11,15 @@
 {
     <!-- Tabell för att visa träningspass -->
     <table>
-    <thead>
-        <tr>
-            <th>Datum</th>
-            <th>Aktivitet</th>
-            <th>Träningstid</th>
-            <th>Känsla</th>
-        </tr>
-    </thead>
-    <tbody>
+        <thead>
+            <tr>
+                <th>Datum</th>
+                <th>Aktivitet</th>
+                <th>Träningstid</th>
+                <th>Känsla</th>
+            </tr>
+        </thead>
+        <tbody>
         <!-- Loopar igenom listan och skriver ut information i tabellen -->
         @foreach (var workout in Model)
             {
@@ -27,7 +27,7 @@
                     <!-- Visa datumet i formatet yyyy-MM-dd -->
                     <td>@string.Format("{0:yyyy-MM-dd}", workout.Date)</td>
                     <td>@workout.Activity</td>
-                    <td>@workout.Minutes</td>
+                    <td>@workout.Minutes minuter</td>
                     <td>@workout.Feeling</td>
                 </tr>
             }
@@ -37,8 +37,8 @@
 else
 {
     <!-- Annars skrivs meddelande ut -->
-    <p>Inga träningspass tillagda...</p>
+    <p>Inga träningspass tillagda än...</p>
 }
 
 <!-- Inkluderar en partial view och skickar med den totala träningstiden som data -->
-@Html.Partial("_TotalWorkoutTimePartial", ViewData["TotalWorkoutTime"])
+@await Html.PartialAsync("_TotalWorkoutTimePartial", ViewData["TotalWorkoutTime"])

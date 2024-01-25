@@ -1,0 +1,259 @@
+/* ÖVERGRIPANDE */
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    margin: 0;
+    margin-bottom: 100px;
+    font-family: 'Montserrat', Arial, sans-serif;
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 22px;
+}
+
+
+/* SIDHUVUD */
+header {
+    background-color: black;
+    padding: 1px 3px;
+}
+
+header nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+header nav ul li {
+    margin: 3px 0;
+}
+
+header nav ul li a {
+    display: block;
+    padding: 3px 0;
+    color: white;
+    text-decoration: none;
+    font-weight: 400;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    transition: 0.3s;
+}
+
+header nav ul li a:hover,
+.active {
+    background-color: rgba(255, 255, 255, 0.221);
+}
+
+
+/* HUVUDINNEHÅLL */
+main {
+    padding: 10px;
+}
+
+h1 {
+    font-weight: 700;
+    font-size: 28px;
+    line-height: 36px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    margin-bottom: 0;
+}
+
+
+/* PARTIAL */
+.workout-time-partial {
+    background-color: rgba(34, 255, 14);
+    padding: 10px;
+    text-align: center;
+    font-weight: 700;
+    margin-top: 40px;
+    border-radius: 2px;
+}
+
+
+/* TABELL */
+table {
+    text-align: left;
+    width: 100%;
+    font-size: 14px;
+    border-collapse: collapse;
+    margin: 20px 0;
+}
+
+thead tr {
+    background-color: rgba(34, 255, 14, 0.393);
+}
+
+th,
+td {
+    padding: 2px 5px;
+}
+
+tr:nth-child(even) {
+    background-color: rgba(34, 255, 14, 0.393);
+}
+
+
+/* FORMULÄR */
+form,
+fieldset {
+    margin: 14px 0;
+}
+
+.form-part {
+    margin-bottom: 10px;
+}
+
+.form-part label {
+    font-weight: 700;
+}
+
+.form-part input {
+    box-sizing: border-box;
+    width: 100%;
+    height: 30px;
+    padding: 1px 2px;
+    font-size: 14px;
+    font-family: 'Montserrat', Arial, sans-serif;
+    background-color: rgba(34, 255, 14, 0.393);
+    border: 1px solid black;
+    border-radius: 2px;
+}
+
+.form-part span {
+    color: red;
+    font-weight: 500;
+}
+
+input[type="submit"] {
+    width: 100%;
+    height: 40px;
+    background-color: rgb(87, 87, 87);
+    color: white;
+    border: 1px solid black;
+    border-radius: 2px;
+    font-weight: 400;
+    margin-bottom: 20px;
+    transition: 0.3s;
+    box-shadow: 0 0 10px black inset, 0 0 2px black inset;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-top: 10px;
+}
+
+input[type="submit"]:hover {
+    background-color: black;
+    cursor: pointer;
+}
+
+fieldset {
+    border: 1px solid black;
+    border-radius: 2px;
+}
+
+legend {
+    font-weight: 700;
+}
+
+
+/* SIDFOT */
+footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background-color: black;
+    color: white;
+}
+
+footer p {
+    text-align: center;
+    padding: 0 20px;
+}
+
+footer a {
+    color: rgb(34, 255, 14);
+    transition: 0.3s;
+}
+
+footer a:hover {
+    color: white;
+    cursor: pointer;
+}
+
+
+/* VID SKÄRMBREDD PÅ MINST 685 PIXLAR */
+@media screen and (min-width: 685px) {
+    header {
+        padding: 10px;
+    }
+
+    header nav ul {
+        display: flex;
+        justify-content: space-between;
+        max-width: 800px;
+        margin: auto;
+    }
+
+    header nav ul li a {
+        padding: 5px 10px;
+        font-size: 16px;
+        border-top: 1px solid rgba(34, 255, 14, 0.321);
+        border-bottom: 1px solid rgba(34, 255, 14, 0.321);
+    }
+
+    header nav ul li a:hover,
+    .active {
+        background-color: black;
+        border-top: 1px solid rgb(34, 255, 14);
+        border-bottom: 1px solid rgb(34, 255, 14);
+    }
+
+    main {
+        max-width: 600px;
+        margin: auto;
+        padding-top: 40px;
+        text-align: center;
+    }
+
+    main p {
+        font-size: 16px;
+    }
+
+    h1 {
+        font-size: 32px;
+    }
+
+    table {
+        font-size: 16px;
+        margin: 50px 0;
+    }
+
+    th,
+    td {
+        padding: 5px 10px;
+    }
+
+    form {
+        text-align: left;
+        font-size: 16px;
+        margin-top: 50px;
+    }
+
+    .form-part {
+        margin-bottom: 20px;
+    }
+
+    .form-part input {
+        height: 36px;
+        padding: 1px 7px;
+        font-size: 16px;
+    }
+
+    input[type="submit"] {
+        font-size: 16px;
+    }
+}

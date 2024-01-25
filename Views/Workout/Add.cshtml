@@ -9,22 +9,22 @@
 <!-- Formulär för att lägga till ett nytt träningspass -->
 <form method="post">
     <div asp-validation-summary="ModelOnly"></div>
-    <div>
+    <div class="form-part">
         <label asp-for="Date"></label><br>
         <input asp-for="Date"><br>
         <span asp-validation-for="Date"></span>
     </div>
-    <div>
+    <div class="form-part">
         <label asp-for="Activity"></label><br>
         <input asp-for="Activity"><br>
         <span asp-validation-for="Activity"></span>
     </div>
-    <div>
+    <div class="form-part">
         <label asp-for="Minutes"></label><br>
         <input asp-for="Minutes"><br>
         <span asp-validation-for="Minutes"></span>
     </div>
     <div>
-        <input type="submit" value="Gå vidare">
+        <input type="submit" value="Fortsätt">
     </div>
 </form>

@@ -8,4 +8,4 @@
 <p>@ViewBag.Welcome</p>
 
 <!-- Inkluderar en partial view och skickar med den totala träningstiden som data -->
-@Html.Partial("_TotalWorkoutTimePartial", ViewData["TotalWorkoutTime"])
+@await Html.PartialAsync("_TotalWorkoutTimePartial", ViewData["TotalWorkoutTime"])
